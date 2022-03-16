@@ -7,4 +7,8 @@ def palindromo(string):
             return False
     return True
 
-print(palindromo('232'))
+"""
+Essa função verifica se uma string é palíndoma ou não.
+"""
+
+palindromo()

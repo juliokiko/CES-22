@@ -6,6 +6,10 @@ def draw_square(t, sz):
     t.forward(sz)
     t.left(90)
 
+"""
+Essa função desenha um conjunto de quadrados concêntricos com tamanho definido.
+"""
+
 wn = turtle.Screen()
 
 wn.bgcolor("lightgreen")

@@ -6,6 +6,10 @@ def draw_poly(t, n, sz):
     t.forward(sz)
     t.left(360/n)
 
+"""
+Essa função desenha um polígono regular qualquer a partir do número de lados e seu tamanho.
+"""
+
 wn = turtle.Screen()
 
 wn.bgcolor("lightgreen")
