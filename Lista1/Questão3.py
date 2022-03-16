@@ -3,3 +3,5 @@ def sum_to(n):
   for i in range(n):
     sum = sum + i + 1
   return sum
+
+sum_to()

@@ -10,4 +10,4 @@ def is_prime(n):
   else:
       return False
 
-print(is_prime(29))
+is_prime()

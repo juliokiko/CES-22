@@ -6,3 +6,5 @@ def palindromo(string):
         if string[i] != string[size - i - 1]:
             return False
     return True
+
+print(palindromo('232'))
