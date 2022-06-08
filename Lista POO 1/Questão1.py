@@ -1,108 +1,176 @@
-from cmath import pi
-import math
-from abc import ABC, abstractmethod
+# Livraria
 
-class Breakfast_Rancho:
-  def __init__(self, alimentos):
-    self.alimentos = alimentos
+# Aqui, definem-se os produtos que serão vendidos na livraria
 
-  def __repr__(self):
-    return f'Breakfast_Rancho({self.alimentos!r})'
+class Produtos:
 
-  @classmethod
-  def segunda(cls):
-    return cls(['salsicha','mingau_rosa','leite_com_café'])
+# Primeiramente, os produtos da cafeteria, que poderão ser adicionados ou retirados pelo dono da livraria como ele desejar
 
-  @classmethod
-  def terça(cls):
-    return cls(['queijo','mingau_branco','pão'])
+  class Produto_Cafeteria:
+    def __init__(self, produto, preço):
+      self.produto = produto
+      self.preço = preço
 
-  @classmethod
-  def sábado(cls):
-    return cls(['mingau_marrom','café_puro'])
+    def deleta_produto(self):
+      self.produto = None
+      self.preço = None
 
-  @classmethod
-  def domingo(cls):
-    return cls(['água'])
+    def ExibirProdutoCafeteria(self):
+      print(self.produto)
 
-class Playing_with_math:
-  def __init__(self, número, raio, lado_do_quadrado):
-    self.número = número
-    self.raio = raio
-    self.lado_do_quadrado = lado_do_quadrado
+# Aqui, os livros são definidos com suas características, incluindo as operações de adição, remoção e edição para cada livro
 
-  def __repr__(self):
-    return f'Playing_with_math({self.número!r})'
+  class Livro:
 
-  def fatorial(self):
-    return self.equação(self.número)
-  
-  @staticmethod
-  def equação(n):
-    return math.factorial(n)
+    def __init__(self, título, edição, autor, gênero, editora, preço_de_venda, preço_de_compra, imposto_gênero):
 
-  def area(self):
-    return self.area_quadrado(self.lado_do_quadrado)
-  
-  @staticmethod
-  def area_quadrado(l):
-    return l*l
+      self.título = título
+      self.edição = edição
+      self.editora = editora
+      self.autor = autor
+      self.gênero = gênero
+      self.preço_de_venda = preço_de_venda
+      self.preço_de_compra = preço_de_compra
+      self.imposto_gênero = imposto_gênero
 
-  def perímetro(self):
-    return self.perímetro_círculo(self.raio)
-  
-  @staticmethod
-  def perímetro_círculo(r):
-    return 2*pi*r
+    def deleta_livro(self):
 
+      self.título = None
+      self.edição = None
+      self.editora = None
+      self.autor = None
+      self.gênero = None
+      self.preço_de_venda = None
+      self.preço_de_compra = None
+      self.imposto_gênero = None
+      
 
-class Juice_Rancho(ABC):
+    def ExibirTítuloLivro(self):
+      print(self.título)
 
-	@abstractmethod
-	def noofsides(self):
-		pass
+    def ExibirEdiçãoLivro(self):
+      print(self.edição)
 
-class Roxo(Juice_Rancho):
+    def ExibirEditoraLivro(self):
+      print(self.editora)
 
-	def noofsides(self):
-		print("Estou entre uva e tamarindo!")
+    def ExibirAutorLivro(self):
+      print(self.autor)
 
-class Amarelo(Juice_Rancho):
+    def ExibirGêneroLivro(self):
+      print(self.gênero)
 
-  def noofsides(self):
-    print("Posso ser literalmente qualquer fruta!")
+    def ExibirPreçodeVendaLivro(self):
+      print(self.preço_de_venda)
 
-class Marrom(Juice_Rancho):
+    def ExibirPreçodeCompraLivro(self):
+      print(self.preço_de_compra)
 
-	def noofsides(self):
-		print("Você jamais saberá de onde eu vim!")
+    def ExibirImpostoGêneroLivro(self):
+      print(self.imposto_gênero)
 
-class Verde(Juice_Rancho):
+# Agora, definem-se o cadastro dos autores, com as principais características e uma lista de livros publicados para consulta, com sua possível exclusão
 
-	def noofsides(self):
-		print("É limão ou abacaxi?")
+class Autor:
 
-print('')
+      def __init__(self, nome, email):
+        self.nome = nome
+        self.email = email
 
-print(Breakfast_Rancho.domingo())
-print(Breakfast_Rancho.segunda())
-print(Breakfast_Rancho.terça())
+      def ExibirNomeAutor(self):
+        print(self.nome)
 
-print('')
+      def ExibirEmailAutor(self):
+        print(self.email)  
 
-p = Playing_with_math(8, 5, 7)
-print('A área do quadrado é ',p.area(),'!', sep='')
-print('O fatorial calculado é ',p.fatorial(),'!', sep='')
-print('O peírmetro do círculo é ',p.perímetro(),'!', sep='')
+      class Livros_Publicados:
+        def __init__(self, título):
+          self.título = título
 
-print('')
+        def deleta_livro_publicado(self):
+          self.título = None
 
-R = Roxo()
-R.noofsides()
-V = Verde()
-V.noofsides()
-A = Amarelo()
-A.noofsides()
+        def ExibirTítuloLivroPublicado(self):
+          print(self.título)
 
-print('')
+# O cadastro de clientes, com as principais informações de identificação e possibilidade de inserção, remoção e consulta, assim como uma lista de compra,
+# pode ser manipulada da mesma forma
 
+class Clientes:
+
+      def __init__(self, nome, email):
+        self.nome = nome
+        self.email = email
+
+      def deleta_cliente(self):
+        self.nome = None
+        self.email = None
+
+      def ExibirNomeCliente(self):
+        print(self.nome)
+
+      def ExibirEmailCliente(self):
+        print(self.email)  
+      
+
+      class Compras:
+
+        def __init__(self, quantidade_produto, produto, preço):
+          self.quantidade_produto = quantidade_produto
+          self.produto = produto
+          self.preço = preço
+
+        def deleta_compra(self):
+          self.quantidade_produto = None
+          self.produto = None
+          self.preço = None
+
+        def ExibirQuantidadeCompra(self):
+          print(self.quantidade_produto)
+        
+        def ExibirProdutosCompra(self):
+          print(self.produto)
+
+        def ExibirPreçoCompra(self):
+          print(self.preço)
+      
+      
+# Aqui, adiciona-se produtos, livros, autores, clientes e compras para compor a análise da livraria
+
+produto_cafeteria_1 = Produtos.Produto_Cafeteria('Cafezinho','R$ 5,00')
+produto_cafeteria_2 = Produtos.Produto_Cafeteria('Pão de Queijo','R$ 8,00')
+produto_cafeteria_3 = Produtos.Produto_Cafeteria('Água','R$ 4,00')
+
+livro1 = Produtos.Livro('As aventuras de um engenheiro', '3ª edição', 'Einstein', 'Terror', 'Scipione', 'R$ 50,00', 'R$ 40,00', 'R$ 10,00')
+livro2 = Produtos.Livro('Como criar um jogo em um bimestre', '1ª edição', 'Marie Curie', 'Suspense', 'Ática', 'R$ 100,00', 'R$ 80,00', 'R$ 20,00')
+livro3 = Produtos.Livro('Buracos negros existem?', '6ª edição', 'Einstein', 'Ficção Científica', 'Scipione', 'R$ 147,50', 'R$ 117,00', 'R$ 30,50')
+livro4 = Produtos.Livro('A lenda de um ninja determinado', '10ª edição', 'Jiraya', 'Aventura', 'Konoha', 'R$ 230,00', 'R$ 130,00', 'R$ 100,00')
+livro5 = Produtos.Livro('Desafios de criar um site em 2 meses', '8ª edição', 'Nikolas Tesla', 'Drama', 'Martin Claret', 'R$ 10,00', 'R$ 6,30', 'R$ 3,70')
+livro6 = Produtos.Livro('Contos em um Paraíso Tropical', '23ª edição', 'Jiraya', 'Romance', 'Konoha', 'R$ 450,00', 'R$ 300,00', 'R$ 150,00')
+
+autor1 = Autor('Einstein', 'einstein@relatividade.com')
+autor1_livro1 = autor1.Livros_Publicados(livro1.título)
+autor1_livro2 = autor1.Livros_Publicados(livro3.título)
+
+autor2 = Autor('Marie Curie', 'mariecurie@nobel.com')
+autor2_livro1 = autor2.Livros_Publicados(livro2.título)
+
+autor3 = Autor('Jiraya', 'jiraya@konoha.com')
+autor3_livro1 = autor3.Livros_Publicados(livro4.título)
+autor3_livro2 = autor3.Livros_Publicados(livro6.título)
+          
+autor4 = Autor('Nikolas Tesla', 'nikolastesla@eletricidade.com')
+autor4_livro1 = autor4.Livros_Publicados(livro5.título)
+
+cliente1 = Clientes('Susane', 'susaninharebelde@hotmail.com')
+cliente1_compra1 = cliente1.Compras(1, livro6.título, livro6.preço_de_venda)
+cliente1_compra2 = cliente1.Compras(2, produto_cafeteria_1.produto, produto_cafeteria_1.preço)
+
+cliente2 = Clientes('Mauro', 'maurohokage@gmail.com')
+cliente2_compra1 = cliente2.Compras(3, livro4.título, livro4.preço_de_venda)
+
+cliente3 = Clientes('Ariel', 'arielsapekinhe@yahoo.com')
+cliente3_compra1 = cliente3.Compras(3, produto_cafeteria_2.produto, produto_cafeteria_2.preço)
+cliente3_compra2 = cliente3.Compras(2, produto_cafeteria_3.produto, produto_cafeteria_3.preço)
+
+print('Bem-vindo à Livraria!')
